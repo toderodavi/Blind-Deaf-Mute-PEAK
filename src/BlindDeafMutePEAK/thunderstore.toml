@@ -7,8 +7,8 @@ repository = "https://thunderstore.io"
 [package]
 namespace = "toderodavi"
 name = "BlindDeafMutePEAK"
-description = "TODO: Fill in short mod description."
-websiteUrl = "" # TODO: Add a link to your mod repository here (optional)
+description = "A mod for Peak that adds the "blind-deaf-mute" challenge to the ascent!."
+websiteUrl = "https://github.com/toderodavi/Blind-Deaf-Mute-PEAK"
 containsNsfwContent = false
 
 [package.dependencies]
