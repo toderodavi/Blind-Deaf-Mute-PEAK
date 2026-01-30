@@ -1,7 +1,5 @@
-﻿using System.Reflection;
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Logging;
-using HarmonyLib;
 
 namespace BlindDeafMutePEAK;
 
@@ -14,13 +12,10 @@ namespace BlindDeafMutePEAK;
 // This BepInAutoPlugin attribute comes from the Hamunii.BepInEx.AutoPlugin
 // NuGet package, and it will generate the BepInPlugin attribute for you!
 // For more info, see https://github.com/Hamunii/BepInEx.AutoPlugin
-
-// That is an ATTRIBUTE.
 [BepInAutoPlugin]
 public partial class Plugin : BaseUnityPlugin
 {
     internal static ManualLogSource Log { get; private set; } = null!;
-    private readonly Harmony _harmony = new(Id);
 
     private void Awake()
     {
@@ -36,6 +31,5 @@ public partial class Plugin : BaseUnityPlugin
 
         // Log our awake here so we can see it in LogOutput.log file
         Log.LogInfo($"Plugin {Name} is loaded!");
-        _harmony.PatchAll(Assembly.GetExecutingAssembly());
     }
 }
