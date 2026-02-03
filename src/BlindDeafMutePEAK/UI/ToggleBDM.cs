@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,6 @@ namespace BlindDeafMutePEAK.UI
             if (modToggle == null)
             {
                 modToggle = new GameObject("Toggle");
-                toggleBackground = new GameObject("toggleBackground");
                 toggleContent = new GameObject("toggleContent");
 
                 // Get the images to be insert in the toggle
@@ -26,13 +26,13 @@ namespace BlindDeafMutePEAK.UI
 
                 // Adds the components
                 Toggle toggle = modToggle.AddComponent<Toggle>();
-                toggleBackground.AddComponent<Image>().sprite = toggleBackgroundImage.sprite;
+                modToggle.AddComponent<Image>().sprite = toggleBackgroundImage.sprite;
                 toggleContent.AddComponent<Image>().sprite = toggleContentImage.sprite;
 
-                toggleBackground.GetComponent<Image>().color = toggleBackgroundImage.color;
-                toggleBackground.GetComponent<Image>().material = toggleBackgroundImage.material;
-                toggleBackground.GetComponent<Image>().type = toggleBackgroundImage.type;
-
+                modToggle.GetComponent<Image>().color = toggleBackgroundImage.color;
+                modToggle.GetComponent<Image>().material = toggleBackgroundImage.material;
+                modToggle.GetComponent<Image>().type = toggleBackgroundImage.type;
+                modToggle.GetComponent<Image>().pixelsPerUnitMultiplier = toggleBackgroundImage.pixelsPerUnitMultiplier;
 
                 toggleContent.GetComponent<Image>().color = toggleContentImage.color;
                 toggleContent.GetComponent<Image>().material = toggleContentImage.material;
@@ -41,17 +41,16 @@ namespace BlindDeafMutePEAK.UI
 
                 // Appends the toggle container to the panel
                 modToggle.transform.SetParent(BoardPassBDM.BoardPassPanel.transform, false);
-                toggleBackground.transform.SetParent(modToggle.transform, false);
-                toggleContent.transform.SetParent(toggleBackground.transform, false);
+                toggleContent.transform.SetParent(modToggle.transform, false);
+                modToggle.GetComponent<Toggle>().graphic = toggleContent.GetComponent<Image>();
 
 
                 RectTransform modToggleRect = modToggle.GetComponent<RectTransform>();
-                RectTransform BackgroundToggleRect = toggleBackground.GetComponent<RectTransform>();
                 RectTransform ContentToggleRect = toggleContent.GetComponent<RectTransform>();
 
                 // Modifications
-                modToggleRect.anchoredPosition = new Vector2(135, -80);
-                modToggleRect.sizeDelta = new Vector2(80, 80);
+                modToggleRect.anchoredPosition = new Vector2(128, -80);
+                modToggleRect.sizeDelta = new Vector2(65, 65);
                 ContentToggleRect.sizeDelta = new Vector2(40, 40);
             }
         }
