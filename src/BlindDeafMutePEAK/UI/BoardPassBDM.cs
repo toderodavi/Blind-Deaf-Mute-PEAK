@@ -11,7 +11,8 @@ namespace BlindDeafMutePEAK.UI
     internal class BoardPassBDM
     {
 
-        // Find the BoardPass Panel
+        // Find the BoardPass Panel Object
+        // And getting the RectTransform of every object in the Panel
         public static GameObject BoardingPassPanelObject = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel");
         public static RectTransform BoardingPassRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass").GetComponent<RectTransform>();
         public static RectTransform BlueTopRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel/BlueTop").GetComponent<RectTransform>();
@@ -33,6 +34,38 @@ namespace BlindDeafMutePEAK.UI
         public static RectTransform StartGameButtonRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel/StartGameButton").GetComponent<RectTransform>();
         public static RectTransform AscentRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel/Ascent").GetComponent<RectTransform>();
 
+        public static Vector2 OriginalBoardingPassSizeDelta = BoardingPassRect.sizeDelta;
+
+        public static Vector2 OriginalBlueTopAnchorPos = BlueTopRect.anchoredPosition;
+        public static Vector2 OriginalBlueBotAnchorPos = BlueBotRect.anchoredPosition;
+
+        public static Vector2 OriginalBoardingPassTextAnchorPos = BoardingPassTextRect.anchoredPosition;
+        public static Vector2 OriginalPassengerTextAnchorPos = PassengerTextRect.anchoredPosition;
+        public static Vector2 OriginalPassengerNameTextAnchorPos = PassengerNameTextRect.anchoredPosition;
+
+        public static Vector2 OriginalGateTextAnchorPos = GateTextRect.anchoredPosition;
+        public static Vector2 OriginalFromTextAnchorPos = FromTextRect.anchoredPosition;
+        public static Vector2 OriginalToTextAnchorPos = ToTextRect.anchoredPosition;
+
+        public static Vector2 OriginalGateTextLocalAnchorPos = GateTextLocalRect.anchoredPosition;
+        public static Vector2 OriginalFromTextLocalAnchorPos = FromTextLocalRect.anchoredPosition;
+        public static Vector2 OriginalToTextLocalAnchorPos = ToTextLocalRect.anchoredPosition;
+
+        public static Vector2 OriginalPlaneAnchorPos = PlaneRect.anchoredPosition;
+
+        public static Vector2 OriginalDottedLineAnchorPos = DottedLineRect.anchoredPosition;
+        public static Vector2 OriginalDottedLineSizeDelta = DottedLineRect.sizeDelta;
+
+        public static Vector2 OriginalBarCodeAnchorPos = BarCodeRect.anchoredPosition;
+
+        public static Vector2 OriginalLogoAnchorPos = LogoRect.anchoredPosition;
+        public static Vector2 OriginalCloseButtonAnchorPos = CloseButtonRect.anchoredPosition;
+
+        public static Vector2 OriginalStartGameButtonAnchorPos = StartGameButtonRect.anchoredPosition;
+        public static Vector2 OriginalAscentAnchorPos = AscentRect.anchoredPosition;
+
+        public static Vector2 OriginalBlueBotSizeDelta = BlueBotRect.sizeDelta;
+
 
         // Targetting the method in BoardingPass that runs when this UI is open.
         [HarmonyPatch(typeof(BoardingPass), nameof(BoardingPass.OnOpen))]
@@ -41,39 +74,7 @@ namespace BlindDeafMutePEAK.UI
 
         {
 
-            // Modify all RectTransforms declared above
-            BoardingPassRect.sizeDelta = new Vector2(BoardingPassRect.sizeDelta.x, BoardingPassRect.sizeDelta.y + 300f);
 
-            BlueTopRect.anchoredPosition = new Vector2(BlueTopRect.anchoredPosition.x, 340f);
-            BlueBotRect.anchoredPosition = new Vector2(BlueBotRect.anchoredPosition.x, -338f);
-
-            BoardingPassTextRect.anchoredPosition = new Vector2(BoardingPassTextRect.anchoredPosition.x, 337.4836f);
-            PassengerTextRect.anchoredPosition = new Vector2(PassengerTextRect.anchoredPosition.x, 240.8f);
-            PassengerNameTextRect.anchoredPosition = new Vector2(PassengerNameTextRect.anchoredPosition.x, 200.9f);
-
-            GateTextRect.anchoredPosition = new Vector2(GateTextRect.anchoredPosition.x, 240.8f);
-            FromTextRect.anchoredPosition = new Vector2(FromTextRect.anchoredPosition.x, 240.1468f);
-            ToTextRect.anchoredPosition = new Vector2(ToTextRect.anchoredPosition.x, 240.1468f);
-
-            GateTextLocalRect.anchoredPosition = new Vector2(GateTextLocalRect.anchoredPosition.x, 200.9f);
-            FromTextLocalRect.anchoredPosition = new Vector2(FromTextLocalRect.anchoredPosition.x, 200.9f);
-            ToTextLocalRect.anchoredPosition = new Vector2(ToTextLocalRect.anchoredPosition.x, 200.9f);
-
-            PlaneRect.anchoredPosition = new Vector2(PlaneRect.anchoredPosition.x, 337.77f);
-                
-            DottedLineRect.anchoredPosition = new Vector2(DottedLineRect.anchoredPosition.x, 300f);
-
-            BarCodeRect.anchoredPosition = new Vector2(BarCodeRect.anchoredPosition.x, 98.5f);
-
-            LogoRect.anchoredPosition = new Vector2(LogoRect.anchoredPosition.x, 343.9f);
-            CloseButtonRect.anchoredPosition = new Vector2(CloseButtonRect.anchoredPosition.x, 330f);
-
-            StartGameButtonRect.anchoredPosition = new Vector2(StartGameButtonRect.anchoredPosition.x, 110.475f );
-
-            AscentRect.anchoredPosition = new Vector2(AscentRect.anchoredPosition.x, 62f);
-
-
-            BlueBotRect.sizeDelta = new Vector2(BlueBotRect.sizeDelta.x, 498.96f);
 
 
             TextToggleBDM.CreateTextToggle();
