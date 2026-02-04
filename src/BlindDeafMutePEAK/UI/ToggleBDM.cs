@@ -40,7 +40,7 @@ namespace BlindDeafMutePEAK.UI
 
 
                 // Appends the toggle container to the panel
-                modToggle.transform.SetParent(BoardPassBDM.BoardPassPanel.transform, false);
+                modToggle.transform.SetParent(BoardPassBDM.BoardingPassPanelObject.transform, false);
                 toggleContent.transform.SetParent(modToggle.transform, false);
                 modToggle.GetComponent<Toggle>().graphic = toggleContent.GetComponent<Image>();
 
