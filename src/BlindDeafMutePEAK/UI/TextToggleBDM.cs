@@ -16,12 +16,12 @@ namespace BlindDeafMutePEAK.UI
             if(modNameText == null)
             {
                 // Get a reference text from the UI
-                TextMeshProUGUI referenceText = BoardPassBDM.BoardingPassPanelObject.GetComponentInChildren<TextMeshProUGUI>();
+                TextMeshProUGUI referenceText = BoardingPassUIManager.BoardingPassPanelObject.GetComponentInChildren<TextMeshProUGUI>();
 
                 // Instantiate the GameObject, appends it to the parent,
                 // adds the component "TextMeshProUGUI",
                 modNameText = new GameObject("BDM");
-                modNameText.transform.SetParent(BoardPassBDM.BoardingPassPanelObject.transform, false);
+                modNameText.transform.SetParent(BoardingPassUIManager.BoardingPassPanelObject.transform, false);
 
                 // Get the rectTransform component from the text
                 // And add an actual text component to the GameObject
@@ -35,6 +35,5 @@ namespace BlindDeafMutePEAK.UI
                 modNameTextRect.anchoredPosition = new Vector2(115, -70);
             }
         }
-
     }
 }
