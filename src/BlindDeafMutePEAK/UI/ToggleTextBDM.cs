@@ -6,33 +6,32 @@ using UnityEngine;
 
 namespace BlindDeafMutePEAK.UI
 {
-    internal class TextToggleBDM
+    internal class ToggleTextBDM
     {
-        // Declares a GameObject variable
-        public static GameObject modNameText = null!;
+        public static GameObject toggleText = null!;
 
-        public static void CreateTextToggle()
+        public static void CreateToggleText()
         {
-            if(modNameText == null)
+            if(toggleText == null)
             {
                 // Get a reference text from the UI
                 TextMeshProUGUI referenceText = BoardingPassUIManager.BoardingPassPanelObject.GetComponentInChildren<TextMeshProUGUI>();
 
                 // Instantiate the GameObject, appends it to the parent,
                 // adds the component "TextMeshProUGUI",
-                modNameText = new GameObject("BDM");
-                modNameText.transform.SetParent(BoardingPassUIManager.BoardingPassPanelObject.transform, false);
+                toggleText = new GameObject("BDM");
+                toggleText.transform.SetParent(BoardingPassUIManager.BoardingPassPanelObject.transform, false);
 
                 // Get the rectTransform component from the text
                 // And add an actual text component to the GameObject
-                TextMeshProUGUI BDM = modNameText.AddComponent<TextMeshProUGUI>();
-                RectTransform modNameTextRect = modNameText.GetComponent<RectTransform>();
+                TextMeshProUGUI BDM = toggleText.AddComponent<TextMeshProUGUI>();
+                RectTransform toggleTextRect = toggleText.GetComponent<RectTransform>();
 
                 BDM.text = "BDM";
                 BDM.color = Color.blue;
                 BDM.font = referenceText.font;
                 BDM.fontSize = 40;
-                modNameTextRect.anchoredPosition = new Vector2(115, -70);
+                toggleTextRect.anchoredPosition = new Vector2(115, -70);
             }
         }
     }

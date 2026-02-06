@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using HarmonyLib;
-using UnityEngine;
-
 
 namespace BlindDeafMutePEAK.UI
 {
@@ -15,7 +13,7 @@ namespace BlindDeafMutePEAK.UI
         [HarmonyPostfix]
         private static void BoardingPassBDMPatch()
         {
-            TextToggleBDM.CreateTextToggle();
+            ToggleTextBDM.CreateToggleText();
             ToggleBDM.CreateToggle();
         }
     }
