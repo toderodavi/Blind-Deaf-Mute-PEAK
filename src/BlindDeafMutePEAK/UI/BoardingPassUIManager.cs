@@ -8,7 +8,7 @@ namespace BlindDeafMutePEAK.UI
     internal class BoardingPassUIManager
     {
         // Find the BoardingPass Panel Object
-        // And get the RectTransform of every child of the Panel
+        // And get the RectTransform of all children of the Panel
         public static GameObject BoardingPassPanelObject = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel");
         private static readonly RectTransform BoardingPassRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass").GetComponent<RectTransform>();
         private static readonly RectTransform BlueTopRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel/BlueTop").GetComponent<RectTransform>();
@@ -30,8 +30,8 @@ namespace BlindDeafMutePEAK.UI
         private static readonly RectTransform StartGameButtonRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel/StartGameButton").GetComponent<RectTransform>();
         private static readonly RectTransform AscentRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel/Ascent").GetComponent<RectTransform>();
 
-        // Save the original anchorPosition and a few sizeDelta of every child in the Panel
-        // The spaces between lines are to somewhat group the fields as they placed in the UI
+        // Save the original anchorPosition and some sizeDelta of the children
+        // The spaces between lines are to somewhat group the fields as they are placed in the UI
 
         private static Vector2 OriginalBoardingPassSizeDelta = BoardingPassRect.sizeDelta;
 
@@ -108,7 +108,7 @@ namespace BlindDeafMutePEAK.UI
             } 
             else
             {
-                // Turn back the anchorPosition and sizeDelta of the children in the Panel to their original state
+                // Turn back the anchorPosition and sizeDelta of the children to their original state
                 BoardingPassRect.sizeDelta = OriginalBoardingPassSizeDelta;
 
                 BlueTopRect.anchoredPosition = OriginalBlueTopAnchorPos;

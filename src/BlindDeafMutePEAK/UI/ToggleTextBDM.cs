@@ -17,13 +17,9 @@ namespace BlindDeafMutePEAK.UI
                 // Get a reference text from the UI
                 TextMeshProUGUI referenceText = BoardingPassUIManager.BoardingPassPanelObject.GetComponentInChildren<TextMeshProUGUI>();
 
-                // Instantiate the GameObject, appends it to the parent,
-                // adds the component "TextMeshProUGUI",
                 toggleText = new GameObject("BDM");
                 toggleText.transform.SetParent(BoardingPassUIManager.BoardingPassPanelObject.transform, false);
 
-                // Get the rectTransform component from the text
-                // And add an actual text component to the GameObject
                 TextMeshProUGUI BDM = toggleText.AddComponent<TextMeshProUGUI>();
                 RectTransform toggleTextRect = toggleText.GetComponent<RectTransform>();
 
