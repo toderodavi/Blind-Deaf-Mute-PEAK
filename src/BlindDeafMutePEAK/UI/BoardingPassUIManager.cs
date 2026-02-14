@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TMPro;
 using UnityEngine;
 
 namespace BlindDeafMutePEAK.UI
@@ -8,8 +9,12 @@ namespace BlindDeafMutePEAK.UI
     internal class BoardingPassUIManager
     {
         // Find the BoardingPass Panel Object
+        // Get a reference text from the UI
         // And get the RectTransform of all children of the Panel
         public static GameObject BoardingPassPanelObject = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel");
+
+        public static TextMeshProUGUI refText = BoardingPassPanelObject.GetComponentInChildren<TextMeshProUGUI>();
+
         private static readonly RectTransform BoardingPassRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass").GetComponent<RectTransform>();
         private static readonly RectTransform BlueTopRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel/BlueTop").GetComponent<RectTransform>();
         private static readonly RectTransform BlueBotRect = GameObject.Find("GAME/GUIManager/Canvas_BoardingPass/BoardingPass/Panel/BlueBot").GetComponent<RectTransform>();
@@ -105,7 +110,13 @@ namespace BlindDeafMutePEAK.UI
 
                 ToggleBDM.modToggle.GetComponent<RectTransform>().anchoredPosition = new Vector2(128, 60);
                 ToggleTextBDM.toggleText.GetComponent<RectTransform>().anchoredPosition = new Vector2(115, 70);
-            } 
+
+                // Text bubbles
+
+                BubbleTitle.CreateBubbleTitle("Blind", new Vector2(-425, -140.8f));
+                BubbleTitle.CreateBubbleTitle("Deaf", new Vector2 (-150, -140.8f));
+                BubbleTitle.CreateBubbleTitle("Mute", new Vector2 (120, -140.8f));
+            }
             else
             {
                 // Turn back the anchorPosition and sizeDelta of the children to their original state
